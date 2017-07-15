@@ -50,23 +50,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,         KC_1,       KC_2,       KC_3,       KC_4,        KC_5,        KC_6,
         KC_TAB,         KC_Q,       KC_D,       KC_R,       KC_W,        KC_B,        TG(QWRT),
         LCTL_T(KC_ESC), KC_A,       KC_S,       KC_H,       KC_T,        KC_G,
-        OSM(KC_LSFT),   KC_Z,       KC_X,       KC_M,       KC_C,        KC_V,        TT(MOUS),
-        KC_LCTL,        KC_LCTL,    KC_LGUI,    MO(SMBL),   KC_LALT,
+        OSM(MOD_LSFT),   KC_Z,       KC_X,       KC_M,       KC_C,        KC_V,       KC_NO,
+        KC_LCTL,        KC_LCTL,    KC_LGUI,    KC_LALT,   MO(NMBS),
 
-                    KC_ESC,     KC_APP,
+                        KC_ESC, KC_APP,
                                 KC_HYPR,
-        MO(NMBS),   MO(SMBL),   KC_LGUI,
+        OSM(MOD_LALT),  KC_NO,  TT(MOUS),
 
         // right hand
         KC_7,       KC_8,       KC_9,       KC_0,       KC_MINS,     KC_EQL,      KC_BSPC,
         KC_MEH,     KC_J,       KC_F,       KC_U,       KC_P,        KC_SCLN,     KC_BSPC,
                     KC_Y,       KC_N,       KC_E,       KC_O,        KC_I,        LCTL_T(KC_ENT),
-        TT(MOUS),   KC_K,       KC_L,       KC_COMM,    KC_DOT,      KC_SLSH,     OSM(KC_RSFT),
-                                MO(SMBL),   KC_LEFT,    KC_DOWN,     KC_UP,       KC_RIGHT,
+        KC_NO,      KC_K,       KC_L,       KC_COMM,    KC_DOT,      KC_SLSH,     OSM(MOD_RSFT),
+                          LT(SMBL, KC_SPC), KC_LEFT,    KC_DOWN,     KC_UP,       KC_RIGHT,
 
         KC_INS,     KC_DEL,
         KC_HYPR,
-        KC_RGUI,    MO(SMBL),      KC_SPC
+        TT(MOUS),   KC_NO,      OSM(MOD_LALT)
     ),
 
 /* Keymap 1: QWERTY layer
@@ -148,7 +148,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        // right hand
        KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
        KC_TRNS,        KC_TRNS,    KC_7,       KC_8,       KC_9,       KC_NO,      KC_TRNS,
-                       KC_0,       KC_4,       KC_5,       KC_6,       KC_NO,      KC_TRNS,
+                       KC_NO,      KC_4,       KC_5,       KC_6,       KC_0,       KC_TRNS,
        KC_HYPR,        KC_TRNS,    KC_1,       KC_2,       KC_3,       KC_NO,      KC_TRNS,
                                    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
 
