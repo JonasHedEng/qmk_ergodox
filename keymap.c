@@ -13,7 +13,10 @@
 #define QWRT 1
 #define NMBS 2
 #define SMBL 3
-#define MOUS 4
+#define NPNK 4
+#define NNMB 5
+#define NSMB 6
+#define MOUS 7
 
 enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
@@ -53,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         OSM(MOD_LSFT),   KC_Z,       KC_X,       KC_M,       KC_C,        KC_V,       KC_NO,
         KC_LCTL,        KC_LCTL,    KC_LGUI,    KC_LALT,   MO(NMBS),
 
-                        KC_ESC, KC_APP,
+                        KC_ESC, TT(NPNK),
                                 KC_HYPR,
         OSM(MOD_LALT),  KC_NO,  TT(MOUS),
 
@@ -90,6 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  *                                 |      |      |      |       |      |        |      |
  *                                 `--------------------'       `----------------------'
  */
+
 [QWRT] = KEYMAP(  // layer 1: QWERTY layer
        KC_TRNS,        KC_1,       KC_2,       KC_3,       KC_4,       KC_5,       KC_TRNS,
        KC_TRNS,        KC_Q,       KC_W,       KC_E,       KC_R,       KC_T,       KC_TRNS,
@@ -203,7 +207,80 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
        KC_TRNS,        KC_TRNS,      KC_TRNS
 ),
 
-/* Keymap 4: Navigation
+[NPNK] = KEYMAP(  // layer 4 : No pinkie use
+        // left hand
+        KC_Q,       KC_D,       KC_R,       KC_W,       KC_B,        KC_NO,    KC_NO,
+        KC_A,       KC_S,       KC_H,       KC_T,       KC_G,        KC_NO,    TG(QWRT),
+        KC_Z,       KC_X,       KC_M,       KC_C,       KC_V,        KC_NO,
+        KC_NO,      KC_NO,      KC_NO,      KC_NO, LCTL_T(KC_TAB), LT(NMBS, KC_ESC), KC_NO,
+        KC_LCTL,    KC_LCTL,    KC_LGUI,    LT(NNMB, KC_ENT), LCTL_T(KC_ESC),
+
+                        KC_ESC, KC_TRNS,
+                                KC_HYPR,
+        OSM(MOD_LALT),  KC_NO,  TT(MOUS),
+
+        // right hand
+        KC_NO,      KC_NO,      KC_J,       KC_F,       KC_U,       KC_P,        KC_SCLN,
+        KC_NO,      KC_NO,      KC_Y,       KC_N,       KC_E,       KC_O,        KC_I,
+                    KC_NO,      KC_K,       KC_L,       KC_COMM,    KC_DOT,      KC_SLSH,
+        KC_NO, RALT_T(KC_BSPC), LSFT_T(KC_SPC), LT(NSMB, KC_ENT), KC_NO, KC_NO,  KC_NO,
+                    KC_NO,      KC_NO,      KC_NO,      KC_NO,      KC_NO,
+
+        KC_INS,     KC_DEL,
+        KC_HYPR,
+        TT(MOUS),   KC_NO,      OSM(MOD_LALT)
+    ),
+
+// NO PINKIE NUMBERS
+[NNMB] = KEYMAP(
+       KC_TRNS,        KC_F1,      KC_F2,      KC_F3,      KC_F4,      KC_F5,      KC_TRNS,
+       KC_TRNS,        KC_F6,      KC_F7,      KC_F8,      KC_F9,      KC_F10,     KC_TRNS,
+       KC_TRNS,        KC_F11,     KC_F12,     KC_NO,      KC_NO,      KC_NO,
+       KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+       KC_TRNS,        KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+
+                       KC_TRNS,    KC_TRNS,
+                                   KC_TRNS,
+       KC_TRNS,        KC_TRNS,    KC_TRNS,
+
+       // right hand
+       KC_TRNS,        KC_TRNS,    KC_NO,       KC_7,       KC_8,       KC_9,       KC_NO,  
+       KC_TRNS,        KC_TRNS,    KC_NO,       KC_4,       KC_5,       KC_6,       KC_0,   
+                       KC_TRNS,    KC_NO,       KC_1,       KC_2,       KC_3,       KC_NO,  
+       KC_HYPR,        KC_TRNS,    KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+                                   KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,    KC_TRNS,
+
+       UC(0x00E5),        KC_TRNS,
+       UC(0x00E4),
+       UC(0x00F6),        KC_TRNS,    KC_TRNS
+),
+
+// NO PINKIE SYMBOLS
+[NSMB] = KEYMAP(
+       // left hand
+       KC_EXCLAIM,    KC_AT,        KC_HASH,       KC_DLR,      KC_PERC,    KC_TRNS,    KC_TRNS,
+       KC_CIRC,       KC_AMPR,      KC_ASTR,       KC_MINUS,    KC_UNDS,    KC_TRNS,    KC_TRNS,
+       KC_GRV,        KC_TILD,      KC_QUOT,       KC_DQT,      KC_BSLS,    KC_TRNS,
+       KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS,     KC_TRNS,    KC_TRNS,    KC_TRNS,
+       KC_TRNS,       KC_TRNS,      KC_TRNS,       KC_TRNS,                 KC_TRNS,
+
+                      KC_TRNS,      UC(0x00C5),
+                                    UC(0x00C4),
+       KC_TRNS,       KC_TRNS,      UC(0x00D6),
+
+       // right hand
+       KC_TRNS,       KC_TRNS,      KC_NO,        KC_LCBR,      KC_RCBR,    KC_EQUAL,    KC_NO,  
+       KC_TRNS,       KC_TRNS,      KC_PIPE,      KC_LPRN,      KC_RPRN,    KC_PLUS,     KC_NO,  
+                      KC_TRNS,      KC_NO,        KC_LBRC,      KC_RBRC,    KC_NO,       KC_NO,  
+       KC_TRNS,       KC_TRNS,      KC_TRNS,      KC_TRNS,      KC_TRNS,    KC_TRNS,     KC_TRNS,
+                                    KC_TRNS,      KC_TRNS,      KC_TRNS,    KC_TRNS,     KC_TRNS,
+
+       KC_TRNS,        KC_TRNS,
+       KC_TRNS,
+       KC_TRNS,        KC_TRNS,     KC_TRNS
+),
+
+/* Keymap 7: Navigation
  *
  * ,--------------------------------------------------.           ,--------------------------------------------------.
  * | RESET  |      |      |      |P-SCRE|S-LOCK|PAUSE |           |NLOCK | CALC |  =   |  /   |  *   |      |        |
